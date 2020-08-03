@@ -1,4 +1,11 @@
-# go-http-server
+# GO HTTP Server
 
-## start server
-``` go run main.go ```
+## Description
+
+GO HTTP server
+
+## How to start
+
+```bash
+$ go run main.go
+```
