@@ -27,6 +27,7 @@ $ heroku create
 $ git init
 $ git add . && git commit -m "Deploy to Heroku"
 $ heroku stack:set container -a app-name
+$ heroku config:set PORT=3000
 $ git push heroku master
 
 $ heroku open
