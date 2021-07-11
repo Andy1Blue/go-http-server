@@ -32,7 +32,7 @@ func allFoobars(w http.ResponseWriter, r *http.Request) {
 func handleRequests() {
 	http.HandleFunc("/", home)
 	http.HandleFunc("/foobars", allFoobars)
-	log.Fatal(http.ListenAndServe(os.Getenv("PORT"), nil))
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), nil))
 }
 
 func main() {
