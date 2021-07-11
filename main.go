@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 type Foobar struct {
@@ -31,7 +32,7 @@ func allFoobars(w http.ResponseWriter, r *http.Request) {
 func handleRequests() {
 	http.HandleFunc("/", home)
 	http.HandleFunc("/foobars", allFoobars)
-	log.Fatal(http.ListenAndServe(":80", nil))
+	log.Fatal(http.ListenAndServe(os.Getenv("PORT"), nil))
 }
 
 func main() {
