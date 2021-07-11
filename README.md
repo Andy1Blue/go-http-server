@@ -16,7 +16,7 @@ $ go run main.go # run app
 
 ```bash
 $ docker build -t go-http-server .
-$ docker run -p 8000:8000 -d go-http-server
+$ docker run -p 3000:3000 -d go-http-server
 ```
 
 ## Heroku
