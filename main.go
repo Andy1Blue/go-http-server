@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 )
 
 type Foobar struct {
@@ -16,7 +17,9 @@ type Foobar struct {
 type Foobars []Foobar
 
 func home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello GO")
+	fmt.Fprintf(w, "<b>Hello GO HTTP SERVER</b>")
+	fmt.Fprintf(w, "<p><a href=\"/foobar\">Foobar</a></p>")
+	fmt.Fprintf(w, "<p><a href=\"/foobars\">Foobars</a></p>")
 }
 
 func foobar(w http.ResponseWriter, r *http.Request) {
@@ -40,8 +43,14 @@ func handleRequests() {
 	http.HandleFunc("/foobar", foobar)
 	http.HandleFunc("/foobars", allFoobars)
 
+	// Set env manualy for local
+	// os.Setenv("PORT", "3000")
+
 	port := os.Getenv("PORT")
 
+	currentTime := time.Now()
+
+	fmt.Println("Server started on PORT " + port + " / " + currentTime.String())
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
