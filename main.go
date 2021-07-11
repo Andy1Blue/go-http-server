@@ -33,7 +33,7 @@ func allCameras(w http.ResponseWriter, r *http.Request) {
 func handleRequests() {
 	http.HandleFunc("/", home)
 	http.HandleFunc("/cameras", allCameras)
-	log.Fatal(http.ListenAndServe(":8888", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func main() {
