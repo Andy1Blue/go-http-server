@@ -30,7 +30,7 @@ func allFoobars(w http.ResponseWriter, r *http.Request) {
 
 func handleRequests() {
 	http.HandleFunc("/", home)
-	http.HandleFunc("/foobars", allCameras)
+	http.HandleFunc("/foobars", allFoobars)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
