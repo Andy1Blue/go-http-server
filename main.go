@@ -7,32 +7,30 @@ import (
 	"net/http"
 )
 
-type Camera struct {
+type Foobar struct {
 	Name        string `json:"Name"`
-	URL         string `json:"URL"`
 	Description string `json:"Description"`
 }
 
-type Cameras []Camera
+type Foobars []Foobar
 
 func home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<a href='/cameras'>Cameras</a>")
+	fmt.Fprintf(w, "Hello GO")
 }
 
-func allCameras(w http.ResponseWriter, r *http.Request) {
-	cameras :=
-		Cameras{
-			Camera{Name: "Morskie Oko", URL: "http://pogoda.topr.pl/download/current/mors.jpeg", Description: "Morskie Oko view"},
-			Camera{Name: "Morskie Oko", URL: "http://pogoda.topr.pl/download/current/mors.jpeg", Description: "Morskie Oko view"},
-			Camera{Name: "Morskie Oko", URL: "http://pogoda.topr.pl/download/current/mors.jpeg", Description: "Morskie Oko view"},
+func allFoobars(w http.ResponseWriter, r *http.Request) {
+	foobars :=
+		Foobars{
+			Foobar{Name: "Random 1", Description: "Random 2"},
+			Foobar{Name: "Random 2", Description: "Random 4"},
 		}
-	fmt.Println("All cameras")
-	json.NewEncoder(w).Encode(cameras)
+	fmt.Println("All foobars")
+	json.NewEncoder(w).Encode(foobars)
 }
 
 func handleRequests() {
 	http.HandleFunc("/", home)
-	http.HandleFunc("/cameras", allCameras)
+	http.HandleFunc("/foobars", allCameras)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
