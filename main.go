@@ -19,6 +19,12 @@ func home(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello GO")
 }
 
+func foobar(w http.ResponseWriter, r *http.Request) {
+	foobar := Foobar{Name: "Random 1", Description: "Random 2"}
+	fmt.Println("Foobar")
+	json.NewEncoder(w).Encode(foobar)
+}
+
 func allFoobars(w http.ResponseWriter, r *http.Request) {
 	foobars :=
 		Foobars{
@@ -31,8 +37,12 @@ func allFoobars(w http.ResponseWriter, r *http.Request) {
 
 func handleRequests() {
 	http.HandleFunc("/", home)
+	http.HandleFunc("/foobar", foobar)
 	http.HandleFunc("/foobars", allFoobars)
-	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), nil))
+
+	port := os.Getenv("PORT")
+
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
 func main() {
