@@ -22,10 +22,13 @@ $ docker run -p 3000:3000 -d go-http-server
 ## Heroku
 
 ```bash
-heroku login
-heroku create
-git init
-git add . && git commit -m "Deploy to Heroku"
-heroku stack:set container -a app-name
-git push heroku master
+$ heroku login
+$ heroku create
+$ git init
+$ git add . && git commit -m "Deploy to Heroku"
+$ heroku stack:set container -a app-name
+$ git push heroku master
+
+$ heroku open
+$ heroku logs --tail
 ```
