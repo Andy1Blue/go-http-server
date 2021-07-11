@@ -16,7 +16,7 @@ $ go run main.go # run app
 
 ```bash
 $ docker build -t go-http-server .
-$ docker run -p 8080:8080 -d go-http-server
+$ docker run -p 8000:8000 -d go-http-server
 ```
 
 ## Heroku
@@ -27,6 +27,5 @@ heroku create
 git init
 git add . && git commit -m "Deploy to Heroku"
 heroku stack:set container -a app-name
-heroku config:set PORT=8080
 git push heroku master
 ```
