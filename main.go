@@ -44,7 +44,7 @@ func handleRequests() {
 	http.HandleFunc("/foobars", allFoobars)
 
 	// Set env manualy for local
-	// os.Setenv("PORT", "3000")
+	// os.Setenv("PORT", "3030")
 
 	port := os.Getenv("PORT")
 
